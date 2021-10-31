@@ -13,12 +13,12 @@ const Container = styled.div`
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = React.useState([]);
+    const [version, setVersion] = React.useState('Kanto');
     const [versions] = React.useState({
         'All': { limit: 1118, offset: 0 }, 'Kanto': { limit: 151, offset: 0 }, 'Jyoto': { limit: 100, offset: 151 },
          'Hoenn': { limit: 135, offset: 251 }, 'Sinnoh': { limit: 107, offset: 386 }, 'Unova': { limit: 156, offset: 493 },
         
     });
-    const [version, setVersion] = React.useState('Kanto');
 
     const getAllPokemon = async () => {
         try {
@@ -45,11 +45,11 @@ const Pokemon = () => {
     return (
         <Container style={{ marginTop: '15px' }}>
             {version === 'All' 
-            ? <Typography> Showing results for {version} versions </Typography>
-            : <Typography> Showing results for the {version} version  </Typography>
+            ? <Typography variant='h5'> Showing Pokemon of {version} versions </Typography>
+            : <Typography variant='h5'> Showing Pokemon of the {version} version  </Typography>
             }
-            <FormControl style={{float:'right'}}>
-                <InputLabel > Choose Version! </InputLabel>
+            <FormControl variant='standard' style={{float:'right', width:'15vh'}}>
+                <InputLabel > Generation </InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

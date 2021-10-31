@@ -17,6 +17,7 @@ const drawerWidth = 250;
 
 export default function SideBar(props) {
     const [pokemon, setPokemon] = React.useState([{ id: { name: '', url: '' } }]);
+
     const getAllPokemon = async () => {
         try {
             const res = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=1118');
@@ -26,10 +27,12 @@ export default function SideBar(props) {
             console.log(err);
         }
     }
+
     React.useEffect(() => {
         getAllPokemon();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />

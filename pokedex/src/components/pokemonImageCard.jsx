@@ -16,7 +16,8 @@ const PokemonImage = (poke) => {
     React.useEffect( () => {
         getPokemon();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []);
+    
     return (
         <Card >
             <CardMedia component='img' src={pokemonImageData} alt={poke.pokemon.name} />
